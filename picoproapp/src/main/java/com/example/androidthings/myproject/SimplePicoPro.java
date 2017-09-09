@@ -142,6 +142,21 @@ public abstract class SimplePicoPro extends SimpleBoard {
         }
     }
 
+    void deleteCharacterOnScreen() {
+        if (activity == null) {
+            Log.e(TAG,"DeleteChar: activity is null");
+            return;
+        }
+
+        EditText editText;
+        editText = (EditText) activity.findViewById(R.id.editText);
+
+        int length = editText.getText().length();
+        if (length > 0) {
+            editText.getText().delete(length - 1, length);
+        }
+    }
+
     void printStringToScreen(String s) {
         if (activity == null) {
             Log.e(TAG,"printString: activity is null");
